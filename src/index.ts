@@ -10,3 +10,9 @@ app.registerInitializer({
 });
 
 app.boot();
+
+window['rerender'] = app.rerender = function() {
+  app.env.begin();
+  app['_renderResult'].value.rerender();
+  app.env.commit();
+}
